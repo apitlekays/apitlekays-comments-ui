@@ -34,6 +34,19 @@
           <button type="button" class="button button-block button-positive loadmore-action">{{ take key='load-more' default='Load more comments' }}</button>
         {{/if}}
       {{/if}}
+
+      {{! Adding support for Foundation Sites}}
+
+      {{#if templateIs 'foundation'}}
+          {{#each comment}}
+            {{> commentsSingleComment}}
+          {{/each}}
+
+        {{#if hasMoreComments}}
+          <button type="button" class="button success small loadmore-action">{{ take key='load-more' default='Load more comments' }}</button>
+        {{/if}}
+      {{/if}}
+
     {{/if}}
   {{else}}
     {{#if customLoadingTemplate }}

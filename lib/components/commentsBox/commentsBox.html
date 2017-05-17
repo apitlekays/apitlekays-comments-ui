@@ -73,6 +73,30 @@
 
       {{> commentsList}}
     {{/if}}
+
+    {{! Adding support for Foundation Sites}}
+
+    {{#if templateIs 'foundation' }}
+        {{#if customHeaderTemplate}}
+          {{> customHeaderTemplate}}
+        {{else}}
+
+        {{/if}}
+
+        {{> commentsSubheader}}
+
+        {{#if sessionGet 'loginAction'}}
+          <div class="callout warning">{{youNeedToLogin}}</div>
+        {{/if}}
+
+        {{#if sessionGet 'commentError'}}
+          <div class="callout alert">{{commentErrorMessage}}</div>
+        {{/if}}
+
+        {{> textarea}}
+
+        {{> commentsList}}
+      {{/if}}
   </div>
   {{/if}}
 </template>

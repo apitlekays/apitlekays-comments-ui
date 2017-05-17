@@ -1,6 +1,6 @@
-# Meteor Comments UI
+# Meteor Comments UI (added Zurb Foundation Sites Flavour)
 
-This package lets you add a comment box in a matter of seconds. Comments UI provides the base for [komentify](http://www.komentify.io), a service that allows you to add comment components to any app without the need for a custom backend.
+This package is a fork of arkham:comments-ui package, with additional support for Foundation Sites framework for templating. Everything else is the same.
 
 * Based on the Meteor accounts system
 * Simple [Javascript API](https://github.com/ARKHAM-Enterprises/meteor-comments-ui/blob/master/GUIDE.md#javascript-api) to manipulate and retrieve comment data

@@ -2,12 +2,12 @@
 
 ## UI Templates
 
-There are default templates for __Bootstrap 3__, __Ionic__ and __Semantic UI__ with according html, configure it like following.
+There are default templates for __Bootstrap 3__, __Ionic__, __Foundation__, and __Semantic UI__ with according html, configure it like following.
 
 ```javascript
 // On the Client
 Comments.ui.config({
-   template: 'bootstrap' // or ionic, semantic-ui
+   template: 'bootstrap' // or ionic, semantic-ui, foundation
 });
 ```
 

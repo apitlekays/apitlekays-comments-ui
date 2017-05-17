@@ -242,5 +242,85 @@
     </div>
     {{/if}}
   {{/if}}
+
+  {{! Adding support for Foundation Sites}}
+
+  {{#if templateIs 'foundation' }}
+    <div class="row comment {{#if isOwnComment}}own-comment{{/if}}">
+      <div class="small-1 hz-comment columns">
+        <img alt="Avatar of {{user.displayName}}" class="hz-thumbnail-avatar " src="{{avatarUrl}}" />
+      </div>
+      <div class="small-11 hz-comment columns">
+        <h6 class="hz-avatar-name">{{user.displayName}} <span class="hz-greyfont">{{createdAgo}}</span></h6>
+        <div class="hz-comment-content content">
+          <p class="comment-content" data-id="{{commentId}}">
+            {{#if uiConfigGet 'markdown'}}
+              <div class="text-span">{{#markdown}}{{content}}{{/markdown}}</div>
+            {{else}}
+              <div class="text-span">{{{enhancedContent}}}</div>
+            {{/if}}
+          </p>
+          {{#if media.content}}
+            <div class="content-media">
+              {{{mediaContent}}}
+            </div>
+          {{/if}}
+          <div class="row hz-actions actions">
+            {{#if isRating 'likes'}}
+              <button class="btn like-action {{#if hasLiked}}btnhz-success{{else}}btnhz-secondary{{/if}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{likesCount}}</button>
+            {{/if}}
+
+            {{#if isRating 'likes-and-dislikes'}}
+                <button class="btn rating like-action {{#if hasLiked}}btnhz-success{{else}}btnhz-secondary{{/if}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{likesCount}}</button>
+                <button class="btn rating dislike-action {{#if hasDisliked}}btnhz-alert{{else}}btnhz-secondary{{/if}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{dislikesCount}}</button>
+            {{/if}}
+
+            {{#if isRating 'stars'}}
+              <button class="btn stars-action">
+                {{#let ratingCount=rating.rating ratingClass=(getRatingClass rating.type) }}
+                  {{> starsRating rating=ratingCount size=10 class=ratingClass mutable=canRate }}
+                {{/let}}
+              </button>
+            {{/if}}
+
+            {{#if allowReplies _id }}
+              <button class="btn reply-action" aria-label="Left Align">
+                {{ take key='reply' default='Reply' }}
+              </button>
+            {{/if}}
+
+            {{#if isChangeable}}
+              {{#if isEditable}}
+                <button class="btn save-action" aria-label="Left Align">
+                  {{ take key='save' default='Save' }}
+                </button>
+              {{else}}
+                <button class="btn edit-action" aria-label="Left Align">
+                  {{ take key='edit' default='Edit' }}
+                </button>
+              {{/if}}
+                <button class="btn remove-action" aria-label="Left Align">
+                  {{ take key='remove' default='Remove' }}
+                </button>
+            {{/if}}
+          </div>
+        </div>
+        <div class="create-reply">
+          {{#if addReply}}
+            {{> textarea reply=true scope=this }}
+          {{/if}}
+        </div>
+        {{#if reply}}
+        <div class="comments hz-replywrapper reply-wrapper">
+          {{#each reply}}
+            {{> commentsSingleComment }}
+          {{/each}}
+        </div>
+        {{/if}}
+
+      </div>
+    </div>
+
+  {{/if}}
   {{/if}}
 </template>
