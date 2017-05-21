@@ -246,11 +246,12 @@
   {{! Adding support for Foundation Sites}}
 
   {{#if templateIs 'foundation' }}
-    <div class="row comment {{#if isOwnComment}}own-comment{{/if}}">
-      <div class="small-1 hz-comment columns">
+  <hr/>
+    <div class="row hz-comments-outer {{#if isOwnComment}}own-comment{{/if}}">
+      <div class="small-1 hz-comments columns">
         <img alt="Avatar of {{user.displayName}}" class="hz-thumbnail-avatar " src="{{avatarUrl}}" />
       </div>
-      <div class="small-11 hz-comment columns">
+      <div class="small-11 hz-comments columns">
         <h6 class="hz-avatar-name">{{user.displayName}} <span class="hz-greyfont">{{createdAgo}}</span></h6>
         <div class="hz-comment-content content">
           <p class="comment-content" data-id="{{commentId}}">

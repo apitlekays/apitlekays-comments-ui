@@ -92,15 +92,14 @@
   {{/if}}
 
   {{#if templateIs 'foundation' }}
-  <div class="row">
-    <div class="small-1 hz-comment columns">
-      <img alt="Avatar of {{user.displayName}}" class="hz-thumbnail-avatar" src="{{avatarUrl}}" />
-    </div>
-    <div class="small-11  hz-comment columns">
+	<div class="row hz-comments collapse">
+		<div class="small-1 columns hz-comment-avatar">
+			<img alt="Avatar of {{user.displayName}}" class="hz-thumbnail-avatar" src="{{avatarUrl}}" />
+		</div>
+		<div class="small-11 columns hz-comment-box">
       <form class="{{#if reply}}reply-form{{else}}comment-form{{/if}}" role="form" action="">
-            <textarea
-                placeholder="{{ take key='placeholder-textarea' default='Write a reply'}}"
-                class="form-control {{#if reply}}create-reply{{else}}create-comment{{/if}} boxsizingBorder" rows="1"></textarea>
+  			<textarea placeholder="{{ take key='placeholder-textarea' default='Write a reply'}}"
+        class="form-control {{#if reply}}create-reply{{else}}create-comment{{/if}}" rows="1"></textarea>
         {{#if showAnonymousInput}}
           <div class="form-group">
             <div class="row">
@@ -121,10 +120,10 @@
             {{/if}}
           </div>
         {{/if}}
-        <button type="submit" class="button primary small radius float-right">{{ take key=addButtonKey default=defaultAddButtonText }}</button>
+        <button type="submit" class="hz-comment-button button primary small radius float-right">{{ take key=addButtonKey default=defaultAddButtonText }}</button>
       </form>
-    </div>
-  </div>
+		</div>
+	</div>
   {{/if}}
   {{/if}}
 </template>
