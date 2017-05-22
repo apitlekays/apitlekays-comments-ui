@@ -1,7 +1,7 @@
 Package.describe({
   name: 'apitlekays:comments-ui',
   summary: 'Simple templates for disqus-like comment functionality',
-  version: '1.3.2',
+  version: '1.3.3',
   git: 'https://github.com/komentify/meteor-comments-ui.git'
 });
 
